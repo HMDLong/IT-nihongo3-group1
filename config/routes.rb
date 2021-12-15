@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :food_reviews
   resources :foods
   root 'static_pages#home'
   devise_for :users
