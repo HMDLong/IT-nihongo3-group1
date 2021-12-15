@@ -1,33 +1,41 @@
-<p id="notice"><%= notice %></p>
+<div class="show-list-foods">
+    <p id="notice"><%= notice %></p>
 
-<h1>Foods</h1>
+    <h1 class="title">List Foods</h1>
+    <div class="d-flex flex-row-reverse bd-highlight">
+        <div class="p-2 bd-highlight">
+            <%= link_to 'New Food', new_food_path %>
+        </div>
+    </div>
+    <div class="row">
+        <% @foods.each do |food| %>
+         <div class="col-4">
+             <div class="card p-0 text-center" >
+                  <%=image_tag food.image if food.image.attached?  %>
+                  <div class="card-body">
+                    <p>Food</p>
+                    <h5 class="card-title"><%= food.name %></h5>
+                    <p><%= food.price %> VND</p>
+                    <p class="card-text"><%= food.description %></p>
+                    <div class="d-flex justify-content-around">
+                        <div class="p-2 bd-highlight">
+                            <%= link_to '<i class="fa fa-pencil-square-o" aria-hidden="true"></i>'.html_safe, edit_food_path(food) %>
+                        </div>
+                        <div class="p-2 bd-highlight">
+                            <%= link_to 'ADD TO CARD', food %>
+                        </div>
+                        <div class="p-2 bd-highlight">
+                             <%= link_to '<i class="fa fa-eye" aria-hidden="true"></i>'.html_safe, food, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+         </div>
+        <%end%>
+    </div>
+   
+     
+   
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Number of food</th>
-      <th>Price</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @foods.each do |food| %>
-      <tr>
-        <td><%= food.name %></td>
-        <td><%= food.number_of_food %></td>
-        <td><%= food.price %></td>
-        <td><%= food.description %></td>
-        <td><%= link_to 'Show', food %></td>
-        <td><%= link_to 'Edit', edit_food_path(food) %></td>
-        <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Food', new_food_path %>
+    
+</div>
