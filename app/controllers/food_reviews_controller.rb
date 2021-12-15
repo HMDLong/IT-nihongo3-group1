@@ -22,10 +22,12 @@ class FoodReviewsController < ApplicationController
   # POST /food_reviews or /food_reviews.json
   def create
     @food_review = FoodReview.new(food_review_params)
+    @food_review.user_id = current_user.id
 
     respond_to do |format|
       if @food_review.save
-        format.html { redirect_to @food_review, notice: "Food review was successfully created." }
+        url = "/foods/" + @food_review.food_id.to_s
+        format.html { redirect_to url, notice: "Food review was successfully created." }
         format.json { render :show, status: :created, location: @food_review }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +40,8 @@ class FoodReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @food_review.update(food_review_params)
-        format.html { redirect_to @food_review, notice: "Food review was successfully updated." }
+        url = "/books/" + @book_review.book_id.to_s
+        format.html { redirect_to url, notice: "Food review was successfully updated." }
         format.json { render :show, status: :ok, location: @food_review }
       else
         format.html { render :edit, status: :unprocessable_entity }

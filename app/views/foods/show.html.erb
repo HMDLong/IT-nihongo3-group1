@@ -25,5 +25,26 @@
   <%= image_tag @food.image if @food.image.attached?%>
 </p>
 
+<h2>Form review</h2>
+
+<%= form_with(model: @food_review, local: true) do |review| %>
+    <div class="field">
+        <%= review.text_area :review %>
+        <%= review.hidden_field :food_id, :value => @food.id%>
+    </div>
+    <div class="actions">
+        <%= review.submit %>
+    </div>
+<% end %>
+
+<ul>
+    <% @food.food_review.each do |food_review| %>
+        <li>
+           (<i><%=food_review.user.name if food_review.user %></i>) <%= food_review.review %>
+        </li>
+    <%end%>
+    
+</ul>
+
 <%= link_to 'Edit', edit_food_path(@food) %> |
 <%= link_to 'Back', foods_path %>
