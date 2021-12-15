@@ -1,5 +1,6 @@
 <h1 style="padding-top:13px; margin-top:13px; border-top:1px solid;">HOME PAGE</h1>
 <ul>
-    <li><%= link_to "Order", orders_path %>
-    <li><%= link_to "Foods", foods_path %>
+  <% if user_signed_in? %>
+      <li><%= link_to "Foods", foods_path %></li>
+  <%end%>
 </ul>
