@@ -1,8 +1,11 @@
-<h1 style="padding-top:13px; margin-top:13px; border-top:1px solid;">HOME PAGE</h1>
-<ul>
-  <% if user_signed_in? %>
-      <li><%= link_to "Foods", foods_path %></li>
-      <li><%= link_to "Food_Reviews", food_reviews_path %></li>
-      <li><%= link_to 'Ordered', orders_path %></li>
-  <%end%>
-</ul>
+<div class="jumbotron m-5">
+    <h1 style="padding-top:13px; margin-top:13px; border-top:1px solid;">MlemMlemへようこそ</h1>
+    <p style="font-size: 18px;">注文、食べよう！！<p>
+    <table>
+      <% if user_signed_in? %>
+          <tr><td><%= link_to "メニュー", foods_path, class: "btn btn-outline-primary" %></td></tr>
+          <tr><td><%= link_to "レビュー", food_reviews_path, class: "btn btn-outline-success" %><tr><td>
+          <tr><td><%= link_to 'オーダー', orders_path, class: "btn btn-outline-warning" %><tr><td>
+      <%end%>
+    </table>
+</div>
