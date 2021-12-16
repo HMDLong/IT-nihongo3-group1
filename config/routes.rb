@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :food_reviews
   resources :foods
   root 'static_pages#home'

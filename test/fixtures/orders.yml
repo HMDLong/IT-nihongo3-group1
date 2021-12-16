@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  food_id: 1
+  name: MyString
+  phone: 1
+  address: MyString
+
+two:
+  food_id: 1
+  name: MyString
+  phone: 1
+  address: MyString
