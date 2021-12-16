@@ -40,7 +40,7 @@ class FoodReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @food_review.update(food_review_params)
-        url = "/books/" + @book_review.book_id.to_s
+        url = "/foods/" + @food_review.food_id.to_s
         format.html { redirect_to url, notice: "Food review was successfully updated." }
         format.json { render :show, status: :ok, location: @food_review }
       else
