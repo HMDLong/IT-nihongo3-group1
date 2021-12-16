@@ -1,6 +1,8 @@
 <div class="jumbotron m-5">
     <h1 style="padding-top:13px; margin-top:13px; border-top:1px solid;">MlemMlemへようこそ</h1>
     <p style="font-size: 18px;">注文、食べよう！！<p>
+    <br>
+    <br>
     <table>
       <% if user_signed_in? %>
           <tr><td><%= link_to "メニュー", foods_path, class: "btn btn-outline-primary" %></td></tr>

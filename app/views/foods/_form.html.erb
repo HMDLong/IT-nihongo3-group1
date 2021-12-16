@@ -11,32 +11,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :number_of_food %>
-    <%= form.number_field :number_of_food %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <br>
+    <table>
+        <tr>
+            <div class="field">
+                <td><%= form.label :name %></td>
+                <td><%= form.text_field :name %></td>
+            </div>
+        </tr>
+        <tr>
+          <div class="field">
+            <td><%= form.label :number_of_food %></td>
+            <td><%= form.number_field :number_of_food %></td>
+          </div>
+        </tr>
+        <tr>
+            <div class="field">
+                <td><%= form.label :image %></td>
+                <td><%= form.file_field :image %></td>
+             </div>
+        </tr>
+        <tr>
+            <div class="field">
+                <td><%= form.label :description %></td>
+                <td><%= form.text_area :description %></td>
+            </div>
+        </tr>
+        <tr>
+            <td>
+                <div class="actions">
+                    <%= form.submit %>
+                </div>
+            </td>
+        </tr>
+    </table>
 <% end %>
