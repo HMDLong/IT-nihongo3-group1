@@ -23,6 +23,7 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     food = Food.find(@order.food_id)
+    @order.user_id = current_user.id
     @order.name = food.name
     @order.price = food.price
     @order.phone = current_user.phone

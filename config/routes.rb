@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :payments
   get 'users/show'
   resources :orders
   resources :food_reviews
