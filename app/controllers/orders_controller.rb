@@ -22,6 +22,12 @@ class OrdersController < ApplicationController
   # POST /orders or /orders.json
   def create
     @order = Order.new(order_params)
+    food = Food.find(@order.food_id)
+    @order.name = food.name
+    @order.price = food.price
+    @order.phone = current_user.phone
+    @order.address = current_user.address
+
 
     respond_to do |format|
       if @order.save
